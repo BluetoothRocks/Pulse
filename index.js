@@ -106,6 +106,7 @@ document.getElementById('connect')
 					}
 
 				    heartRates.push(value);
+					heartRates = heartRates.slice(-250);
 				    drawGraph();
 				});
 			});
@@ -121,7 +122,8 @@ document.getElementById('emulate')
 			rate = value ? (Math.round((60 / value) * 10) / 10) : 0;
 			heartbeat.innerText = value ? value : '';
 
-		    heartRates.push(value);
+			heartRates.push(value);
+			heartRates = heartRates.slice(-250);
 		    drawGraph();
 			
 			setTimeout(emulate, 5000);
