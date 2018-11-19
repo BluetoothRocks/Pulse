@@ -174,7 +174,7 @@ document.getElementById('emulate')
 			heartRates = heartRates.slice(-250);
 		    drawGraph();
 			
-			setTimeout(emulate, 5000);
+			setTimeout(emulate, 500);
 		}
 
 		var value = parseInt(60 + (Math.random() * 60));
