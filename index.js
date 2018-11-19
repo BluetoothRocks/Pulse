@@ -69,6 +69,54 @@ document.addEventListener("visibilitychange", () => {
 });
 
 
+(function() {
+	'use strict';
+
+	const REAL_TIME_FREQUENCY = 900;
+
+	class Beep {
+		constructor() {
+			this.running = false;
+			this.created = false;
+		}
+		
+		create() {
+			this.created = true;
+
+			let audioContext = new AudioContext();
+			this.oscillator = audioContext.createOscillator();
+			this.oscillator.frequency.value = REAL_TIME_FREQUENCY;
+			this.oscillator.connect(audioContext.destination);
+		}
+		
+		start() {
+			if (!this.created) {
+				this.create();
+			}
+			
+			if (!this.running) {
+				this.running = true;
+				this.oscillator.start();
+			}
+		}
+		
+		stop() {
+			if (this.running) {
+				this.running = false;
+				this.oscillator.stop();
+				
+				this.oscillator = null;
+				this.created = false;
+			}
+		}
+	}
+
+	window.Beep = new Beep();
+})();
+
+
+
+
 
 /* Connect to device */
 
