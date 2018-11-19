@@ -2,11 +2,6 @@
 var heart = document.getElementById('heart');
 var heartbeat = document.getElementById('heartbeat');
 
-var heartRates = [];
-
-
-/* Update heart animation */
-
 var rate = 0;
 var previous = 1;
 
@@ -18,7 +13,9 @@ heart.addEventListener('animationiteration', function() {
 });
 
 
-/* Draw graph */
+var heartRates = [];
+
+
 
 var canvas = document.getElementById('graph');
 
@@ -48,8 +45,6 @@ function drawGraph() {
 			context.lineTo(5 + 11 * i, canvas.height);
 			context.stroke();
 		}
-		
-		
 	});	
 }
 
@@ -186,6 +181,3 @@ document.getElementById('emulate')
 
 		emulate();
 	});
-
-
-

@@ -2,55 +2,40 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Pulse – BluetoothRocks!</title>
+		<title>Bluetooth Rocks! — Pulse</title>
 
-		<link rel="manifest" href="manifest.json">
 		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="common.css">
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<script type="text/javascript" src="lib/beep.js"></script>
 		<script type="text/javascript" src="lib/bluetooth-pulsemonitor.js"></script>
-		
-		<script>
-
-			if ('serviceWorker' in navigator) {
-  				navigator.serviceWorker.register('sw.js');
-			}
-
-		</script>
 	</head>
 	
 	<body>
-		<canvas id='graph'></canvas>
+		<div class='content'>
+			<canvas id='graph'></canvas>
 
-		<svg viewBox="0 0 32 29.6">
-			<path id="heart" d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2 c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
-		</svg> 
-		
-		<div id='heartbeat'>
-		</div>
-		
-		<div>
-			<div>
-				<div class='buttons'>
-			        <button id='connect'>Connect</button>
-			        <br>
-			        <button id='emulate'>Don't have a Bluetooth heartbeat monitor? Emulate!</button>
-				</div>
-			</div>
+			<svg viewBox="0 0 32 29.6">
+				<path id="heart" d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2 c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+			</svg> 
 			
-			<div id="about">
-				<a href="https://github.com/BluetoothRocks/Pulse">
-					Created with 
-					<svg viewBox="0 0 32 29.6">
-						<path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2 c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
-					</svg> 
-					by Niels Leenheer
-				</a>
+			<div id='heartbeat'>
 			</div>
 		</div>
-		
+
+		<div class='connect'>
+			<h1>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 136"><path d="M55.48,33.58,66.69,44.82,55.49,56.06V33.58Zm0,68.83L66.69,91.17,55.49,79.93v22.48ZM43.51,68,19.28,43.63l7-7.05L45.61,56V9.53l35.1,35.21L57.53,68,80.72,91.25,45.61,126.47V80L26.3,99.42l-7-7L43.51,68ZM50,136c29.6,0,50-14.11,50-68S79.6,0,50,0,0,14.11,0,68s20.4,68,50,68Z"/></svg>
+				Pulse<em>!</em>
+			</h1>
+			<p>
+				To use this demo you need a Bluetooth heartbeat monitor. Don't have one? <a id='emulate'>Emulate!</a>
+			</p>
+
+			<button id='connect'>Connect</button>
+		</div>
+
 		<script type="text/javascript" src="index.js"></script>
 	</body>
 </html>
