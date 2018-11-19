@@ -33,12 +33,16 @@ function drawGraph() {
 	    var offset = Math.max(0, heartRates.length - max);
 	    context.clearRect(0, 0, canvas.width, canvas.height);
 
-		context.fillStyle = '#666666';
-
+		context.strokeStyle = '#666666';
+		context.lineWidth = 9;
+	
 		for (var i = 0; i < Math.max(heartRates.length, max); i++) {
 			var barHeight = Math.round(heartRates[i + offset ] * canvas.height / 200);
-			context.rect(11 * i, canvas.height - barHeight, 9, Math.max(0, barHeight));
-			context.fill();
+
+			context.beginPath();
+			context.moveTo(5 + 11 * i, canvas.height - barHeight);
+			context.lineTo(5 + 11 * i, canvas.height);
+			context.stroke();
 		}
 		
 		
