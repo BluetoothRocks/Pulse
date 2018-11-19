@@ -22,11 +22,15 @@ heart.addEventListener('animationiteration', function() {
 
 var canvas = document.getElementById('graph');
 
+function resizeGraph() {
+	let s = getComputedStyle(canvas);
+	canvas.width = parseInt(s.width) * devicePixelRatio;
+	canvas.height = parseInt(s.height) * devicePixelRatio;	
+
+}
+
 function drawGraph() {
 	requestAnimationFrame(() => {
-		canvas.width = parseInt(getComputedStyle(canvas).width.slice(0, -2)) * devicePixelRatio;
-		canvas.height = parseInt(getComputedStyle(canvas).height.slice(0, -2)) * devicePixelRatio;
-		
 	    var context = canvas.getContext('2d');
 	    var margin = 0;
 	    var max = Math.max(0, Math.round(canvas.width / 11));
@@ -49,10 +53,17 @@ function drawGraph() {
 	});	
 }
 
-window.onresize = drawGraph;
+resizeGraph();
+drawGraph();
+
+window.onresize = () => {
+	resizeGraph();
+	drawGraph();
+}
 
 document.addEventListener("visibilitychange", () => {
 	if (!document.hidden) {
+		resizeGraph();
 		drawGraph();
 	}
 });
